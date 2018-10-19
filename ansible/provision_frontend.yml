@@ -1,0 +1,6 @@
+---
+- import_playbook: _bootstrap_for_ansible.yml
+- hosts: "all"
+  become: true
+  roles:
+    - common

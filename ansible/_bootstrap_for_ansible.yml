@@ -1,0 +1,24 @@
+---
+- hosts: "all"
+  gather_facts: false
+  become: true
+  pre_tasks:
+    - name: Install Python for Ansible
+      raw: test -e /usr/bin/python || (apt -qqy update && apt install -qqy python-minimal)
+      args:
+        executable: /bin/bash
+      register: is_installed
+      changed_when: is_installed.stdout != ""
+
+    - name: Find Python interpreter path
+      raw: which /usr/bin/python || which /usr/bin/python3
+      register: py_interpreter
+      changed_when: py_interpreter.stdout != ""
+
+    - name: Set the Python interpreter path for Ansible
+      set_fact:
+        ansible_python_interpreter: "{{ py_interpreter.stdout }}"
+
+    - name: Enable Gathering Facts again
+      setup:
+
