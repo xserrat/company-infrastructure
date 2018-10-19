@@ -2,17 +2,27 @@
 
 ## Building provisioned aws AMI using Packer + Ansible
 
-1.Execute packer:
+* Create the `credentials.json` file under `packer/amazon` with the following format:
+
+```json
+{
+  "aws_access_key": "<your-aws-access-key>",
+  "aws_secret_key": "<your-aws-secret-key>"
+}
+
+```
+
+* Execute packer:
 
 ```bash
 packer build -var-file=packer/amazon/credentials.json -var-file=packer/amazon/variables.json packer/amazon/ubuntu/frontend/base_ami.json
 ```
 
-2.Create manually an EC2 instance using the created AMI.
+* Create an EC2 instance manually using the created AMI.
 
-3.Access to EC2 instance via SSH using .pem to test installation
+* Access to EC2 instance via SSH using .pem to test installation
 
 ```bash
-ssh -i ansible/ansible.pem ubuntu@<ip-instance>
+ssh -i aws.pem ubuntu@<ip-instance>
 ```
 
