@@ -1,1 +1,2 @@
 packer/amazon/credentials.json
+terraform/frontend-prod/amazon/credentials.tfvars
