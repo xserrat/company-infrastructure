@@ -1,0 +1,6 @@
+---
+- name: Playbook example
+  hosts: "some_hosts_group"
+  tasks:
+    - name: Show variable
+      debug: var=foo

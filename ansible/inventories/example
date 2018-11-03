@@ -1,0 +1,9 @@
+[first_group]
+first.host.com
+
+[second_group]
+second.host.com
+
+[some_hosts_group:children]
+first_group
+second_group

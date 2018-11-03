@@ -1,5 +1,22 @@
 # Company Infrastructure
 
+## Ansible
+
+### Example: Variables merging order:
+
+Files to review:
+* `inventories/example`
+* `group_vars/first_group.yml`
+* `group_vars/second_group.yml`
+* `host_vars/first.host.com.yml`
+* `host_vars/second.host.com.yml`
+
+Run this playbook:
+
+```bash
+$ ansible-playbook playbook_example.yml -i inventories/example --connection=local
+```
+
 ## Building provisioned aws AMI using Packer + Ansible
 
 * Create the `credentials.json` file under `packer/amazon` with the following format:
