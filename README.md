@@ -1,5 +1,11 @@
 # Company Infrastructure
 
+## Install Ansible roles
+
+```bash
+$ ansible-galaxy install -r ansible/galaxy/requirements.yml
+```
+
 ## Building provisioned aws AMI using Packer + Ansible
 
 * Create the `credentials.json` file under `packer/amazon` with the following format:

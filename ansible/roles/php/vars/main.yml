@@ -1,0 +1,3 @@
+php_version: "7.1"
+php_versions_install_recommends: false
+php_enable_webserver: false

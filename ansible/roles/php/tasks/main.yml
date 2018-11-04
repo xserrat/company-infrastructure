@@ -1,0 +1,12 @@
+- name: Check php is installed
+  command: php -v
+  register: php_is_installed
+  ignore_errors: true
+
+- name: Show PHP version installed if it is installed
+  debug: var=php_is_installed
+  when: php_is_installed is succeeded
+
+- name: Do something if PHP is not installed
+  debug: msg="PHP is not installed because of an error"
+  when: php_is_installed is failed

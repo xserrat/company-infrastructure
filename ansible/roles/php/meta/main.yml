@@ -1,0 +1,3 @@
+dependencies:
+  - role: geerlingguy.php-versions
+  - role: geerlingguy.php
